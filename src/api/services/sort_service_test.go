@@ -1,6 +1,10 @@
 package services
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func getElements(n int) []int {
 	result := make([]int, n)
@@ -16,12 +20,8 @@ func TestSort(t *testing.T) {
 	Sort(elements)
 
 	// Validation
-	if elements[0] != 9 {
-		t.Error("first element should be 9")
-	}
-	if elements[len(elements)-1] != 0 {
-		t.Error("last element should be 0")
-	}
+	assert.EqualValues(t, 9, elements[0], "first element should be 9")
+	assert.EqualValues(t, 0, elements[len(elements)-1], "last element should be 0")
 }
 
 func TestSortMoreThan10000(t *testing.T) {
@@ -29,10 +29,6 @@ func TestSortMoreThan10000(t *testing.T) {
 	Sort(elements)
 
 	// Validation
-	if elements[0] != 10000 {
-		t.Error("first element should be 10000")
-	}
-	if elements[len(elements)-1] != 0 {
-		t.Error("last element should be 0")
-	}
+	assert.EqualValues(t, 0, elements[0], "first element should be 0")
+	assert.EqualValues(t, 10000, elements[len(elements)-1], "last element should be 10000")
 }

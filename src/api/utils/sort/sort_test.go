@@ -1,42 +1,37 @@
 package sort
 
 import (
-	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBubbleSort(t *testing.T) {
 	// init
-	elements := []int{9, 7, 5, 3, 1, 2, 4, 6, 8, 0}
-	fmt.Println(elements)
+	elements := getElements(10)
+
+	assert.NotNil(t, elements)
+	assert.EqualValues(t, 10, len(elements))
+	assert.EqualValues(t, 0, elements[0])
+	assert.EqualValues(t, 9, elements[len(elements)-1])
 	// execution
 	BubbleSort(elements)
-
 	// Validation
-	if elements[0] != 9 {
-		t.Error("first element should be 9")
-	}
-	if elements[len(elements)-1] != 0 {
-		t.Error("last element should be 0")
-	}
-	fmt.Println(elements)
+
+	assert.NotNil(t, elements)
+	assert.EqualValues(t, 10, len(elements))
+	assert.EqualValues(t, 9, elements[0])
+	assert.EqualValues(t, 0, elements[len(elements)-1])
 }
 
 func TestSort(t *testing.T) {
 	// init
 	elements := []int{9, 7, 5, 3, 1, 2, 4, 6, 8, 0}
-	fmt.Println(elements)
 	// execution
 	Sort(elements)
-
 	// Validation
-	if elements[0] != 0 {
-		t.Error("first element should be 0")
-	}
-	if elements[len(elements)-1] != 9 {
-		t.Error("last element should be 9")
-	}
-	fmt.Println(elements)
+	assert.EqualValues(t, 0, elements[0], "first element should be 0")
+	assert.EqualValues(t, 9, elements[len(elements)-1], "last element should be 9")
 }
 
 func getElements(n int) []int {

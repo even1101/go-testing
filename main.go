@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-testing/utils/sort"
+	"go-testing/src/api/utils/sort"
 )
 
 func main() {
