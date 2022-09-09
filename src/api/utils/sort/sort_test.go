@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestBubbleSortOrderASC(t *testing.T) {
+func TestBubbleSort(t *testing.T) {
 	// init
 	elements := []int{9, 7, 5, 3, 1, 2, 4, 6, 8, 0}
 	fmt.Println(elements)
